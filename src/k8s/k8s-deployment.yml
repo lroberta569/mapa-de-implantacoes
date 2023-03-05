@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-mapa-api
+spec:
+  selector:
+    matchLabels:
+      app: ms-mapa-api
+  template:
+    metadata:
+      labels:
+        app: ms-mapa-api
+    spec:
+      containers:
+        - image: "@docker.registry@/@docker.namespace@/@project.artifactId@:latest"
+          imagePullPolicy: "Always"
+          name: ms-mapa-api
+          ports:
+            - containerPort: 80
+          env:
+            - name: AMBIENTE
+              value: hml

@@ -1,0 +1,54 @@
+server:
+  compression:
+    enabled: true
+  port: 9087
+  servlet:
+    context-path: /ms-mapa-api
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "*"
+      #Caso você queira que todos os endpoints não venham habilitados por default, você pode adicionar a seguinte linha:
+      #enabled-by-default
+springfox:
+  documentation:
+    swagger.v2.path: /v2/api-docs
+    info:
+      title: Microsserviço mapa  Bradesco
+      description: ms-mapa-api  API Docs.
+      version: 1.0
+    base-package: com.phoenix
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+  messages:
+    basename: i18n/messages
+    jpa:
+      hibernate:
+        ddl-auto: update
+      database: MYSQL
+      show-sql: true
+      database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      "[hibernate.generate_statistics]": true
+      hibernate:
+        jdbc:
+          lob:
+            '[non_contextual_creation]': true
+        '[format_sql]': true
+        '[use_sql_comments]': true
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+  level:
+    '[com.phoenix]': DEBUG
+    '[org.springframework.boot.context]': DEBUG
+#Keycloak:
+#  realm: mapadeimplantacoes
+#  auth-server-url: http://localhost:8080/
+#  resource: springbootmapadeimplantacoes
+#  public-client: true
+#  bearer-only: true

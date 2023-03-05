@@ -1,0 +1,21 @@
+package com.phoenix.implantation.dto;
+
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * @author Salatiel Fiore
+ * @email salatiel.fiore@arphoenix.com.br
+ * @description Classe de resposta e requisição relacionada ao statusItem
+ */
+@Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class StatusItemDto {
+    private Long id;
+    private String name;
+}
